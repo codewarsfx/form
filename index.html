@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Sign up page</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="hero">
+            <div class="hero-img-container">
+                <img src="./Group6.svg" alt="hero-img" class="hero-img">
+            </div>
+            <div class="hero-caption">
+                <h3 class="hero-caption_header">Hey wanna hang?</h3>
+                <p class="hero-caption_pargraph">
+                        The friend you deserve is just a ping <br> away.. how about we make that <br> connection happen
+                </p>
+            </div>
+        </div>
+        <div class="form">
+            <div class="form-header">
+                <h3>Sign Up</h3>
+                <p>Already a member? <a href="./login.html" class="login-active">Log in</a></p>
+            </div>
+            <div class="form-body">
+                <form action="#">
+                    <div class="form-group form-group--side">
+                        <div>
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control form-control--side" id="firstName">
+                        </div>
+                        <div >
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control form-control--side" id="lastName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email"/>
+                    </div>
+                    <div class="form-group ">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password"/>
+                    </div>
+                        <div class="form-group">
+                        <label for="confirmPass">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPass"/>
+                    </div>
+                    <div class="form-group">
+                        <button>Register</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>
