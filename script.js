@@ -10,7 +10,6 @@
   }
   let  passwordValue=""
 
-  let s,t,u,v,w
 
 
 //   helperFunction for pattern matching
@@ -43,11 +42,9 @@ domElements.passWordInput.addEventListener('keyup',()=>{
 //password validation
    if(passwordValue.length<8 || passwordValue===''){
        displayError(domElements.passWordInput,"Password should be at least 8 charcters long")
-       s=false
    }
    else{
        displaySuccess(domElements.passWordInput)
-       s=true
    }
 })
 
@@ -57,10 +54,8 @@ domElements.confirmInput.addEventListener('keyup',()=>{
 //confirm pass validation
  if(confirmPassValue==='' || (confirmPassValue !== passwordValue)){
      displayError(domElements.confirmInput,'Password doesnt match')
-     t=false
  }else{
      displaySuccess(domElements.confirmInput)
-     t=true
  }
 })
 
@@ -77,10 +72,8 @@ domElements.emailInput.addEventListener('keyup',()=>{
 //email validation
     if(emailValue==='' || !(matchPattern(emailValue,emailRegexp))){
         displayError(domElements.emailInput,"Please enter a valid mail address")
-        u=false
     }else{
         displaySuccess(domElements.emailInput)
-        u=true
     }
 })
 
@@ -91,10 +84,8 @@ domElements.firstNameInput.addEventListener('keyup',()=>{
 //  name validation
  if(firstNameValue==='' || matchPattern(firstNameValue,/[0-9]/)) {
      displayError(domElements.firstNameInput,'Name cannot contain numbers ')
-     v=false
  }else{
      displaySuccess(domElements.firstNameInput)
-     v=true
  }
 
 })
@@ -108,15 +99,9 @@ domElements.lastNameInput.addEventListener('keyup',()=>{
  if(lastNameValue==='' || matchPattern(lastNameValue,/[0-9]/)) {
      
      displayError(domElements.lastNameInput,'Name cannot contain numbers')
-     w=false
  }else{
      displaySuccess(domElements.lastNameInput)
-
-     w=true
-
-     if(u&&v&&w&&s&&t){
-                             domElements.submitButton.removeAttribute('disabled')
-     }
+     domElements.submitButton.removeAttribute('disabled')
  }
 })
 
