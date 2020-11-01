@@ -1,4 +1,14 @@
-//get Dom elements 
+
+
+//   globals
+  let  passwordValue=""
+  let firstnameValidate=false
+  let lastValidate=false
+  let passValidate=false
+  let confirmValidate=false
+  let eValidate=false
+
+  //get Dom elements 
   const domElements={
       firstNameInput:document.querySelector('#firstName'),
       lastNameInput:document.querySelector('#lastName'),
@@ -8,7 +18,6 @@
       submitButton:document.querySelector('.form-button'),
       form:document.querySelector('form'),
   }
-  let  passwordValue=""
 
 
 
@@ -42,10 +51,13 @@ domElements.passWordInput.addEventListener('keyup',()=>{
 //password validation
    if(passwordValue.length<8 || passwordValue===''){
        displayError(domElements.passWordInput,"Password should be at least 8 charcters long")
+       passValidate=false
    }
    else{
        displaySuccess(domElements.passWordInput)
+       passValidate=true
    }
+   activateButton()
 })
 
 domElements.confirmInput.addEventListener('keyup',()=>{
@@ -54,9 +66,12 @@ domElements.confirmInput.addEventListener('keyup',()=>{
 //confirm pass validation
  if(confirmPassValue==='' || (confirmPassValue !== passwordValue)){
      displayError(domElements.confirmInput,'Password doesnt match')
+     confirmValidate=false
  }else{
      displaySuccess(domElements.confirmInput)
+     confirmValidate=true
  }
+ activateButton()
 })
 
 
@@ -73,9 +88,12 @@ domElements.emailInput.addEventListener('keyup',()=>{
 //email validation
     if(emailValue==='' || !(matchPattern(emailValue,emailRegexp))){
         displayError(domElements.emailInput,"Please enter a valid mail address")
+        eValidate=false
     }else{
         displaySuccess(domElements.emailInput)
+        eValidate=true
     }
+    activateButton()
 })
 
 domElements.firstNameInput.addEventListener('keyup',()=>{
@@ -84,9 +102,12 @@ domElements.firstNameInput.addEventListener('keyup',()=>{
 //  name validation
  if(firstNameValue==='' || matchPattern(firstNameValue,/[0-9]/)) {
      displayError(domElements.firstNameInput,'Name cannot contain numbers ')
+     firstnameValidate=false
  }else{
      displaySuccess(domElements.firstNameInput)
+     firstnameValidate=true
  }
+ activateButton()
 })
 
 
@@ -98,11 +119,24 @@ domElements.lastNameInput.addEventListener('keyup',()=>{
  if(lastNameValue==='' || matchPattern(lastNameValue,/[0-9]/)) {
      
      displayError(domElements.lastNameInput,'Name cannot contain numbers')
+     lastValidate=false
  }else{
      displaySuccess(domElements.lastNameInput)
      domElements.submitButton.removeAttribute('disabled')
+     lastValidate=true
  }
+ activateButton()
 })
+
+
+const activateButton=()=>{
+    if(eValidate&&passValidate&&lastValidate&&firstnameValidate&&eValidate){
+        document.querySelector('.form-button').removeAttribute('disabled')
+    }
+    else{
+            document.querySelector('.form-button').setAttribute('disabled','disabled')
+    }
+}
 
 
 

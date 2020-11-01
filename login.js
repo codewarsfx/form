@@ -5,7 +5,10 @@ const domElement={
     
   }
 
-  console.log(domElement.emailInput)
+
+  let emailValidate= false
+  let passwordValidate=false
+
 
 
 //   helperFunction for pattern matching
@@ -34,10 +37,13 @@ domElement.passWordInput.addEventListener('keyup',()=>{
 //password validation
    if(passwordValue.length<8 || passwordValue===''){
        displayErrors(domElement.passWordInput,"Password should be at least 8 charcters long")
+       emailValidate=false
    }
    else{
        displayS(domElement.passWordInput)
+       emailValidate=true
    }
+   checkValid()
 })
 
 
@@ -52,7 +58,19 @@ domElement.emailInput.addEventListener('keyup',()=>{
 //email validation
     if(emailValue==='' || !(matchPatterns(emailValue,emailRegexp))){
         displayErrors(domElement.emailInput,"Please enter a valid mail address")
+        passwordValidate=false
     }else{
         displayS(domElement.emailInput)
+        passwordValidate=true
     }
+    checkValid()
 })
+
+const checkValid=()=>{
+    if(emailValidate&&passwordValidate){
+        document.querySelector('.form-button').removeAttribute('disabled')
+    }
+    else{
+            document.querySelector('.form-button').setAttribute('disabled','disabled')
+    }
+}

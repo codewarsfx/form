@@ -253,3 +253,8 @@ i.move {
     .hero-caption--login {
         margin: 2em 0;
     }
+.form-button:disabled {
+    background-color: var(--light-text);
+    cursor: not-allowed;
+    color: #fff;
+}
