@@ -127,47 +127,21 @@ body{
     position: relative;
 
 }
-
-.form-group i {
-    position: absolute;
-    bottom: 20%;
-    right: 2%;
-    visibility: hidden;
+.form-group:not(:first-child) {
+    margin-top: 20px;
 }
-
-.form-group small {
-    visibility: hidden;
-    position: absolute;
-    left: 0;
-    top: 105%;
-}
-
-small.move {
-
-    left: 52%;
-}
-
-i.move {
-    left: 43%;
-}
-
-.form-group:not(:first-child){
-    margin-top: 25px;
-}
-
 .form-group--side {
     display: flex;
     justify-content: space-between;
 }
-
-.form-group label{
+.form-group label {
     font-size: 16px;
     line-height: 24px;
     color: var(--light-text);
     display: block;
     margin-bottom: 3px;
 }
-.form-control{
+.form-control {
     width: 100%;
     padding: 1rem;
     font-size: 16px;
@@ -176,6 +150,37 @@ i.move {
     border: 1px solid #CACACA;
     color: var(--dark-gray);
 }
+.form-button {
+    border: none;
+    background-color: var(--primary-blue);
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    padding: .8em 3em;
+    border-radius: 5px;
+    box-shadow: 0px 4px 22px -7px rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.form-group i {
+    position: absolute;
+    bottom: 35%;
+    right: 2%;
+    visibility: hidden;
+}
+
+.form-group small {
+    visibility: hidden;
+    /* position: absolute; */
+}
+
+i.move {
+    left: 43%;
+}
+
+
+/* form states */
+
 .error .form-control {
     border-color: #e74c3c;
 
@@ -199,54 +204,49 @@ i.move {
 .success .form-control {
     border-color: #2ecc71;
 }
-
-
-
 .success .fa-check-circle {
     color: #2ecc71;
     visibility: visible;
 }
 
+
+
 .form-control:focus{
     outline-color: var(--primary-blue);
-}
-.form-button {
-    border: none;
-    background-color: var(--primary-blue);
-    color: white;
-    font-family: inherit;
-    font-size: 16px;
-    padding: .8em 3em;
-    border-radius: 5px;
-    box-shadow: 0px 4px 22px -7px rgba(0, 0, 0, 0.19);
-    cursor: pointer;
-}
-.form-button:disabled {
-    cursor: not-allowed;
-    background-color: var(--light-text);
-    color: var(--dark-gray);
 }
 
 
 @media(max-width:760px) {
-    .form-group--side {
-        flex-direction: column;
-    }
-
-    .form {
-        padding: 1em;
-    }
+        .form {
+            padding: 1em;
+        }
 
     .form-header {
         width: 80%;
         padding: 1em;
     }
 
-    .form-group div {
-        margin-top: 60px;
+        .form-group--side {
+            flex-direction: column;
+        }
+
+        .form-body {
+            padding: 0 1em;
+        }
+
+        i.move {
+            left: 95%;
+            top: 29%;
+        }
+
+        i.sec {
+            top: 79%;
+        }
     }
 
-    .form-group div {
-        margin-top: 20px;
+    .hero-caption--login {
+        margin: 2em 0;
     }
+* {
+    border: 1px solid red;
     }

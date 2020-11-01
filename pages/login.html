@@ -30,21 +30,26 @@
                 <p>Not yet Registered? <a href="../index.html" class="login-active">Sign Up Now</a></p>
             </div>
             <div class="form-body">
-                <form action="#">
+                <form action="#" novalidate>
                     <div class="form-group">
+                        <div>
                         <label for="email">Email</label>
-                        <input type="email" class="form-control" id="email" required/>
+                        <input type="email" class="form-control form-email" id="email" required/>
                         <i class="fas fa-exclamation-circle"></i><i class="fas fa-check-circle"></i>
                         <small>Error message</small>
+                        </div>
                     </div>
+
                     <div class="form-group ">
+                        <div>
                         <label for="password">Password</label>
                         <input type="password" class="form-control" id="password" required/>
                         <i class="fas fa-exclamation-circle"></i><i class="fas fa-check-circle"></i>
                         <small>Error message</small>
+                        </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="form-button" value='Register' disabled >
+                        <input type="submit" class="form-button" value='Register' >
                     </div>
 
                 </form>

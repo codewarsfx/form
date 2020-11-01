@@ -2,7 +2,7 @@
   const domElements={
       firstNameInput:document.querySelector('#firstName'),
       lastNameInput:document.querySelector('#lastName'),
-      emailInput:document.querySelector('input[type="email"]'),
+      emailInput:document.querySelector('.form-email'),
       passWordInput:document.querySelector('input[type="password"]'),
       confirmInput:document.querySelector('#confirmPass'),
       submitButton:document.querySelector('.form-button'),
@@ -80,14 +80,12 @@ domElements.emailInput.addEventListener('keyup',()=>{
 domElements.firstNameInput.addEventListener('keyup',()=>{
      //get name value
  const firstNameValue= domElements.firstNameInput.value.trim()
- 
 //  name validation
  if(firstNameValue==='' || matchPattern(firstNameValue,/[0-9]/)) {
      displayError(domElements.firstNameInput,'Name cannot contain numbers ')
  }else{
      displaySuccess(domElements.firstNameInput)
  }
-
 })
 
 
