@@ -63,6 +63,7 @@ domElements.confirmInput.addEventListener('keyup',()=>{
 
 
 domElements.emailInput.addEventListener('keyup',()=>{
+
 //email regular expression
     const emailRegexp= /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 

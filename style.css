@@ -69,6 +69,8 @@ body{
     line-height: 27px;
     color: var(--light-text);
     margin-top: 15px;
+    width: 90%;
+    margin:20px auto;
 }
 
 @media (max-width:760px) {
@@ -170,8 +172,8 @@ body{
 }
 
 .form-group small {
-    visibility: hidden;
-    /* position: absolute; */
+    visibility: hidden; 
+     /* position: absolute; */
 }
 
 i.move {
@@ -218,11 +220,11 @@ i.move {
 
 @media(max-width:760px) {
         .form {
-            padding: 1em;
+            padding: 0 1em 2em;
         }
 
     .form-header {
-        width: 80%;
+        width: 90%;
         padding: 1em;
     }
 
@@ -236,11 +238,15 @@ i.move {
 
         i.move {
             left: 95%;
-            top: 29%;
+            top: 22%;
         }
 
         i.sec {
-            top: 79%;
+            top: 77%;
+            }
+
+            .form-group--side div:nth-child(2) {
+                margin-top: 20px;
         }
     }
 
