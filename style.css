@@ -158,13 +158,15 @@ body{
     color: white;
     font-family: inherit;
     font-size: 16px;
-    padding: .8em 3em;
     border-radius: 5px;
     box-shadow: 0px 4px 22px -7px rgba(0, 0, 0, 0.19);
     cursor: pointer;
+    position: relative;
+    width: 150px;
+    height: 45px;
 }
 
-.form-group i {
+.form-group i:not(:last-child) {
     position: absolute;
     bottom: 35%;
     right: 2%;
@@ -257,4 +259,22 @@ i.move {
     background-color: var(--light-text);
     cursor: not-allowed;
     color: #fff;
+}
+i.loader {
+    position: absolute;
+    left: 49%;
+    transform: translateX(-50%);
+    bottom: 27%;
+    animation: rotate 1.6s ease-in infinite;
+
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }

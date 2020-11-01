@@ -37,11 +37,37 @@ const displaySuccess=element=> {
     element.parentNode.className="success"
 }
 
+
+
+
+// helder function for adding loader
+const  addLoader=()=>{
+     domElements.submitButton.innerHTML=`<i class="fas loader fa-spinner"></i>`
+}
+
+// helper function for removing loader
+const removeLoader=()=>{
+ domElements.submitButton.innerHTML=''
+}
+
+
+
+
+//helper function to update button after load 
+const updateButton=()=> {
+    //remove loader
+       removeLoader()
+    //replace previous text
+        domElements.submitButton.textContent='Submitted'
+}
+
 // listener for submit event
 domElements.form.addEventListener('submit',(e)=>{
     e.preventDefault()
-    console.log('hey')
-
+    //add loader
+    addLoader()
+    //remove loader after 3 seconds load time 
+    setTimeout(updateButton,3000)
 })
 
 
@@ -59,6 +85,7 @@ domElements.passWordInput.addEventListener('keyup',()=>{
    }
    activateButton()
 })
+
 
 domElements.confirmInput.addEventListener('keyup',()=>{
     //confirm password value
@@ -78,7 +105,6 @@ domElements.confirmInput.addEventListener('keyup',()=>{
 
 
 domElements.emailInput.addEventListener('keyup',()=>{
-
 //email regular expression
     const emailRegexp= /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
 
@@ -117,12 +143,10 @@ domElements.lastNameInput.addEventListener('keyup',()=>{
  
 //  name validation
  if(lastNameValue==='' || matchPattern(lastNameValue,/[0-9]/)) {
-     
      displayError(domElements.lastNameInput,'Name cannot contain numbers')
      lastValidate=false
  }else{
      displaySuccess(domElements.lastNameInput)
-     domElements.submitButton.removeAttribute('disabled')
      lastValidate=true
  }
  activateButton()
@@ -130,10 +154,11 @@ domElements.lastNameInput.addEventListener('keyup',()=>{
 
 
 const activateButton=()=>{
-    if(eValidate&&passValidate&&lastValidate&&firstnameValidate&&eValidate){
+    if(eValidate&&passValidate&&lastValidate&&firstnameValidate&&confirmValidate){
         document.querySelector('.form-button').removeAttribute('disabled')
     }
     else{
+            domElements.submitButton.textContent="Register"
             document.querySelector('.form-button').setAttribute('disabled','disabled')
     }
 }

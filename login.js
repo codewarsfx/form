@@ -2,12 +2,43 @@
 const domElement={
       emailInput:document.querySelector('.form-email'),
       passWordInput:document.querySelector('input[type="password"]'),
-    
+      submitButton:document.querySelector('.form-button'),
+      form:document.querySelector('.form')
   }
-
 
   let emailValidate= false
   let passwordValidate=false
+
+  // helder function for adding loader
+const  addLoad=()=>{
+     domElement.submitButton.innerHTML=`<i class="fas loader fa-spinner"></i>`
+}
+
+// helper function for removing loader
+const removeLoad=()=>{
+ domElement.submitButton.innerHTML=''
+}
+
+
+
+
+//helper function to update button after load 
+const updateLoad=()=> {
+    //remove loader
+       removeLoad()
+    //replace previous text
+        domElement.submitButton.textContent='Submitted'
+}
+
+// listener for submit event
+domElement.form.addEventListener('submit',(e)=>{
+    e.preventDefault()
+    //add loader
+    addLoad()
+    //remove loader after 3 seconds load time 
+    setTimeout(updateLoad,3000)
+})
+
 
 
 
@@ -26,6 +57,8 @@ const displayErrors=(element,msg)=>{
 const displayS=element=> {
     element.parentNode.className="success"
 }
+
+
 
 
 
@@ -71,6 +104,8 @@ const checkValid=()=>{
         document.querySelector('.form-button').removeAttribute('disabled')
     }
     else{
+          domElement.submitButton.textContent="Register"
             document.querySelector('.form-button').setAttribute('disabled','disabled')
     }
 }
+
